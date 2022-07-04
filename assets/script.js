@@ -41,3 +41,17 @@ $("#search-form").on("submit", function() {
         fiveDayForecastSection(cityName);
     }
 });
+
+var loadSearchHistory = function() {
+    var savedSearchHistory = localStorage.getItem("savedSearches");
+
+    if (!savedSearchHistory) {
+        return false;
+    }
+
+    savedSearchHistory = JSON.parse(savedSearchHistory);
+
+    for (var i = 0; i < savedSearchHistory.length; i++) {
+        searchHistoryList(savedSearchHistory[i]);
+    }
+};
