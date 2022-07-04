@@ -28,20 +28,6 @@ var searchHistoryList = function(cityName) {
 
 };
 
-$("#search-form").on("submit", function() {
-    event.preventDefault();
-    
-    var cityName = $("#search-input").val();
-
-    if (cityName === "" || cityName == null) {
-        alert("Please enter a city name");
-        event.preventDefault();
-    } else {
-        currentWeatherSection(cityName);
-        fiveDayForecastSection(cityName);
-    }
-});
-
 var loadSearchHistory = function() {
     var savedSearchHistory = localStorage.getItem("savedSearches");
 
@@ -112,6 +98,22 @@ var currentWeatherSection = function(cityName) {
             alert("Please enter a valid city name");
         });
 };
+
+$("#search-form").on("submit", function() {
+    event.preventDefault();
+    
+    var cityName = $("#search-input").val();
+
+    if (cityName === "" || cityName == null) {
+        alert("Please enter a city name");
+        event.preventDefault();
+    } else {
+        currentWeatherSection(cityName);
+        fiveDayForecastSection(cityName);
+    }
+});
+
+
 
 $("#search-history-container").on("click", "p", function() {
     var previousCityName = $(this).text();
