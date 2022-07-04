@@ -112,3 +112,28 @@ var currentWeatherSection = function(cityName) {
             alert("Please enter a valid city name");
         });
 };
+
+$("#search-history-container").on("click", "p", function() {
+    var previousCityName = $(this).text();
+    currentWeatherSection(previousCityName);
+    fiveDayForecastSection(previousCityName);
+
+    var previousCityClicked = $(this);
+    previousCityClicked.remove();
+});
+
+loadSearchHistory();
+
+$("#search-form").on("submit", function() {
+    event.preventDefault();
+    
+    var cityName = $("#search-input").val();
+
+    if (cityName === "" || cityName == null) {
+        alert("Please enter name of city.");
+        event.preventDefault();
+    } else {
+        currentWeatherSection(cityName);
+        fiveDayForecastSection(cityName);
+    }
+});
