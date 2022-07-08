@@ -15,7 +15,7 @@
 ---
 
 # Site URL Running Screenshot #
-![Screenshot](/assets/screenshot.JPG?raw=true "Screenshot")
+![Screenshot](/assets/Capture.JPG?raw=true "Screenshot")
 
 ---
 
